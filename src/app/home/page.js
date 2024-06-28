@@ -70,7 +70,7 @@ export default function HomePage() {
 
     const optionsChange = async (event) => {
         const option = event.target.value;
-
+        setSelectedOption(option);
     }
 
     const reviewBtnClicked = (id) => {
@@ -94,11 +94,8 @@ export default function HomePage() {
         loadData();
         loadGames();
 
-
-    }, []);
-
-
-
+    }, []); // useEffect will run only once 
+    
     return (
         <div>
             <div>
