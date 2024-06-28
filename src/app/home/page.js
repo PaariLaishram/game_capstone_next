@@ -8,7 +8,17 @@ export default function HomePage() {
     let [games, setGames] = useState([]);
 
     const loadIGDB = async () => {
-        const response = await fetch('api/getIGDB');
+        try {
+            const response = await fetch('/api/getIGDB'); // Note the leading slash
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            const data = await response.json(); // Parse JSON response
+            return data; // Return the fetched data
+        } catch (error) {
+            console.error('Error fetching IGDB data:', error);
+            throw error; // Rethrow the error to be handled where loadIGDB is called
+        }
     }
 
     const loadData = async () => {
@@ -37,6 +47,7 @@ export default function HomePage() {
                 const body = await response.json();
                 const newGames = body.map((item) => (
                     {
+                        key:item.game_id,
                         id: item.game_id,
                         game_name: item.game_name,
                         rating: item.rating,
@@ -59,7 +70,7 @@ export default function HomePage() {
 
     const optionsChange = async (event) => {
         const option = event.target.value;
-        setSelectedOption(option);
+        
     }
 
     const reviewBtnClicked = (id) => {
@@ -83,7 +94,7 @@ export default function HomePage() {
         loadGames();
     }, []);
 
-    console.log(selectedOption);
+   
 
     return (
         <div>
