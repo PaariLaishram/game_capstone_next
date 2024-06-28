@@ -47,7 +47,7 @@ export default function HomePage() {
                 const body = await response.json();
                 const newGames = body.map((item) => (
                     {
-                        key:item.game_id,
+                        key: item.game_id,
                         id: item.game_id,
                         game_name: item.game_name,
                         rating: item.rating,
@@ -70,39 +70,34 @@ export default function HomePage() {
 
     const optionsChange = async (event) => {
         const option = event.target.value;
-        
+
     }
 
     const reviewBtnClicked = (id) => {
         document.getElementById('para' + id).setAttribute("hidden", "true");
-        document.getElementById('edit'+id).setAttribute("hidden","true");
+        document.getElementById('edit' + id).setAttribute("hidden", "true");
         document.getElementById('textarea' + id).removeAttribute("hidden");
         document.getElementById('done' + id).removeAttribute("hidden");
     }
 
     const doneBtnClicked = (id) => {
         document.getElementById('para' + id).removeAttribute("hidden");
-        document.getElementById('edit'+ id).removeAttribute("hidden");
+        document.getElementById('edit' + id).removeAttribute("hidden");
         document.getElementById('textarea' + id).setAttribute("hidden", "true");
         document.getElementById('done' + id).setAttribute("hidden", "true");
         console.log(document.getElementById(`textarea${id}`).value);
     }
 
-    
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await loadIGDB();
-                await loadData();
-                await loadGames();
-            } catch (error) {
-                console.error('Error fetching initial data:', error);
-            }
-        };
-        fetchData();
+        loadIGDB();
+        loadData();
+        loadGames();
+
+
     }, []);
 
-   
+
 
     return (
         <div>
@@ -130,7 +125,7 @@ export default function HomePage() {
                         <h3>Review:</h3>
                         <p className='review-para' id={`para${game.id}`}>{game.review}</p>
                         <textarea hidden='true' className='review-textarea' id={`textarea${game.id}`} value={game.review}>{game.review}</textarea>
-                        <button onClick={ () => doneBtnClicked(game.id)}hidden="true" className='done-btn' id={`done${game.id}`}>Done</button>
+                        <button onClick={() => doneBtnClicked(game.id)} hidden="true" className='done-btn' id={`done${game.id}`}>Done</button>
                         <button onClick={() => reviewBtnClicked(game.id)} className="edit-revew-btn" id={`edit${game.id}`}>Edit review</button>
                     </li>
                 ))}
