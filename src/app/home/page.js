@@ -88,10 +88,18 @@ export default function HomePage() {
         console.log(document.getElementById(`textarea${id}`).value);
     }
 
+    
     useEffect(() => {
-        loadIGDB();
-        loadData();
-        loadGames();
+        const fetchData = async () => {
+            try {
+                await loadIGDB();
+                await loadData();
+                await loadGames();
+            } catch (error) {
+                console.error('Error fetching initial data:', error);
+            }
+        };
+        fetchData();
     }, []);
 
    
@@ -113,7 +121,7 @@ export default function HomePage() {
             </div>
             <ul>
                 {games.map((game) => (
-                    <li>
+                    <li key={game.key}>
                         <h2>{game.game_name}</h2>
                         <h3>Release Date: {game.release_date}</h3>
                         <h3>Summary:</h3>
