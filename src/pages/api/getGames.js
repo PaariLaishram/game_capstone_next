@@ -2,7 +2,7 @@ import { sql } from '@vercel/postgres';
 
 export default async function handler(req, res) {
     const option = req.body;
-   switch(option){
+    switch(option){
     case 'game_name':
         try{
             const query = await sql `SELECT * FROM game_list ORDER BY game_name ASC`;

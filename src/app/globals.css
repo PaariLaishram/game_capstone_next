@@ -1,0 +1,13 @@
+body {
+    margin: 0px;
+    padding: 0px; 
+    background-color: #334464;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.92rem;
+ }
+
+ h1,
+h2,
+h3 {
+   font-family: "Inter", sans-serif;
+}
