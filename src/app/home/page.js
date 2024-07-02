@@ -142,7 +142,7 @@ export default function HomePage() {
                 <div className={classes.container}>
                     <div class={classes.intro} id="Intro">
                         <h1>A little bit about me</h1>
-                        <p>Hi there! I am Paari Laishram. I am a vivid gamer and I have been gaming since i was 12. I remember playing native windows XP games like Solitaire on our first laptop that my family bought. Over the years, my passion for gaming has evolved, and I've encountered countless memorable experiences. Here is a list of my top five all-time favorite games.</p></div>
+                        <p>{"Hi there! I am Paari Laishram. I am a vivid gamer and I have been gaming since I was 12. I remember playing native windows XP games like Solitaire on our first laptop that my family bought. Over the years, my passion for gaming has evolved, and I've encountered countless memorable experiences. Here is a list of my top five all-time favorite games."}</p></div>
                     <hr style={{ width: "91%" }} />
                     <div className={classes.filter}>
                         <p>Sort by</p>
