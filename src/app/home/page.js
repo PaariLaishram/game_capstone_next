@@ -177,7 +177,7 @@ export default function HomePage() {
                     <p>CONTACTS</p>
                     <div className={classes.emailContainer}>
                         <img id={classes.email} src="/images/email.jpg" /><a
-                            href="mailto:paarilai05@gmail.com" id={classes.myemail}>paarilai05@gmail.com</a>
+                            href="mailto:paarilai05@gmail.com" id={classes.myemail}>{`paarilai05@gmail.com`}</a>
                     </div>
                     <div className={classes.social}>
                         <a href="https://www.linkedin.com/in/paari-laishram-92b7021ba/"><img id={classes.linkedin} src="/images/linkedin.png" alt="LinkedIn" /> </a>
