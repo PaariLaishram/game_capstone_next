@@ -129,7 +129,7 @@ export default function HomePage() {
     }, []); // useEffect will run only once 
 
     return (
-        loading ? <h1>Loading...</h1> : (
+        loading ? <h1 style={{color: "white", fontSize: "50px", textAlign:"center"}}>Loading...</h1> : (
             <div id="Home">
                 <div className={classes.navbar}>
                     <ul>
