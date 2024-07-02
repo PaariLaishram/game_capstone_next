@@ -3,17 +3,13 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import classes from "./page.module.css"
 
-
-
-
 export default function HomePage() {
     const [selectedOption, setSelectedOption] = useState("game_name");
-    const [data, setData] = useState("");
     let [games, setGames] = useState([]);
     const [text, setText] = useState("");
     const [reviewId, setReviewId] = useState("");
     const [loading, setLoading] = useState(true);
-    const [focusText, setFocusText] = useState("");
+  
 
 
     const loadIGDB = async () => {
@@ -79,12 +75,7 @@ export default function HomePage() {
         setText(text);
 
     }
-    const compareText = (blurText) => {
-        console.log(focusText, blurText)
-        if (focusText === blurText) {
-            setText(focusText);
-        }
-    }
+
 
 
 
@@ -164,7 +155,7 @@ export default function HomePage() {
                                     <h3>Rating: {game.rating}</h3>
                                     <h3>Review:</h3>
                                     <p className='review-para' id={`para${game.key}`}>{game.review}</p>
-                                    <textarea hidden={true} className={classes.editTextArea} id={`textarea${game.key}`} onFocus={(e) => { const initalText = e.target.value; setFocusText(initalText) }} onBlur={(e) => { const text = e.target.value; compareText(text) }} onChange={textChange} defaultValue={game.review}></textarea>
+                                    <textarea hidden={true} className={classes.editTextArea} id={`textarea${game.key}`}  onChange={textChange} defaultValue={game.review}></textarea>
                                     <button onClick={() => doneBtnClicked(game.key)} hidden={true} className={classes.doneBtn} id={`done${game.key}`}>Done</button>
                                     <button onClick={() => reviewBtnClicked(game.key)} className="edit-revew-btn" id={`edit${game.key}`}>Edit review</button>
 
