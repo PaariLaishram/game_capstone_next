@@ -126,7 +126,7 @@ export default function HomePage() {
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About Me</a></li>
-                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#contacts">Contacts</a></li>
                     </ul>
                     <h1><a href="#">My top 5 games of all times</a></h1>
                 </div>
@@ -164,7 +164,7 @@ export default function HomePage() {
                         </ul>
                     </div>
                 </div>
-                <div className={classes.footer}>
+                <div id ="contacts" className={classes.footer}>
                     <p>CONTACTS</p>
                     <div className={classes.emailContainer}>
                         <img id={classes.email} src="/images/email.jpg" /><a
